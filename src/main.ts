@@ -1,24 +1,19 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter'
+// 1
+import 'normalize.css';
+// 2
+// import '@picocss/pico';
+// 3
+import P5 from 'p5';
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
+// const myp5 =
+new P5((p: P5) => {
+    p.setup = () => {
+        p.createCanvas(800, 600);
+    };
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+    p.draw = () => {
+        p.background(0);
+        p.fill(255);
+        p.rect(p.width / 2 - 25, p.height / 2 - 25, 50, 50);
+    };
+});
