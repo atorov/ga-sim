@@ -1,10 +1,17 @@
 import P5 from 'p5';
 import CFG from './config';
+import {
+    createPopulation,
+    Creature,
+    drawCreatures,
+    updateCreatures,
+} from './creatures';
 
 const el = document.getElementById(CFG.sketch.elementId);
 
 const s = new P5((p5: P5) => {
     let bio: P5.Graphics;
+    let population: Creature[];
 
     p5.setup = () => {
         s.createCanvas(CFG.sketch.width, CFG.sketch.height);
@@ -36,6 +43,8 @@ const s = new P5((p5: P5) => {
             CFG.bio.background.color.brightness,
             CFG.bio.background.color.alpha
         );
+
+        population = createPopulation(bio, CFG.creatures.population.size.init);
     };
 
     p5.draw = () => {
@@ -52,7 +61,9 @@ const s = new P5((p5: P5) => {
             CFG.bio.background.color.brightness,
             CFG.bio.background.color.alpha
         );
+        updateCreatures(population);
+        drawCreatures(population);
 
-        s.image(bio, 0, 0, CFG.sketch.width, CFG.sketch.height);
+        s.image(bio, 0, 0, CFG.bio.width, CFG.bio.height);
     };
 }, el ?? undefined);

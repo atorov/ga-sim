@@ -22,13 +22,13 @@ const CFG = {
             color: {
                 hue: 0,
                 saturation: 0,
-                brightness: 0,
+                brightness: 80,
                 alpha: 100,
             },
         },
     },
     bio: {
-        width: 1280,
+        width: 720,
         height: 720,
         colorMode: {
             colorSpace: 'hsb',
@@ -51,6 +51,13 @@ const CFG = {
                 saturation: 0,
                 brightness: 0,
                 alpha: 100,
+            },
+        },
+    },
+    creatures: {
+        population: {
+            size: {
+                init: 20,
             },
         },
     },
